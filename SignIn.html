@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+
+</head>
+
+
+<div class="container">
+
+    <div class="header">
+        <!-- <div style="  width:50%; display: inline-block; float: left; "> -->
+        <h2 style="color: #c36cbb;">Login</h2>
+        <!-- </div> -->
+        <!-- 
+        <div style=" width:50%;display: inline-block;">
+
+            <img src="https://cms.eichertrucksandbuses.com/uploads/truck/sub-category/a933e5958e4a354cfb8d22665bd244fd.png"
+                alt="matebook" height="100">
+        </div> -->
+
+    </div>
+    <form class="form" id="form" action="./welcome.html">
+
+        <div class="form-control">
+            <label>User Name</label>
+            <input type="text" placeholder="florinpop17" id="username">
+            <!-- <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i> -->
+            <small>Error message</small>
+
+        </div>
+        <div class="form-control">
+            <label>Password</label>
+            <input type="password" placeholder="password" id="password">
+            <!-- <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i> -->
+            <small>Error message</small>
+        </div>
+        <button>Submit</button>
+        <p style="text-align: center;">Don't have an account? <a href="SignUp.html">Register Here</a></p>
+
+    </form>
+</div>
+
+
+<script>
+    const form = document.getElementById('form');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        checkInputs();
+    });
+    function checkInputs() {
+
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        // trim to remove the whitespaces
+        const usernameValue = username.value.trim();
+        const passwordValue = password.value.trim();
+        if (usernameValue === 'JohnCena' && passwordValue === '123456') {
+
+            window.location.href = "welcome.html";
+            setSuccessFor(username)
+            setSuccessFor(password)
+
+        } else {
+            setErrorFor(username, 'Invalid Username or Passowrd');
+            setErrorFor(password, 'Invalid Username or Passowrd');
+        }
+    }
+
+    function setErrorFor(input, message) {
+        const formControl = input.parentElement;
+        const small = formControl.querySelector('small');
+        formControl.className = 'form-control error';
+        small.innerText = message;
+    }
+
+    function setSuccessFor(input) {
+        const formControl = input.parentElement;
+        formControl.className = 'form-control success';
+
+    }
+
+    // SOCIAL PANEL JS
+    const floating_btn = document.querySelector('.floating-btn');
+    const close_btn = document.querySelector('.close-btn');
+    const social_panel_container = document.querySelector('.social-panel-container');
+
+
+
+    floating_btn.addEventListener('click', () => {
+        social_panel_container.classList.toggle('visible')
+    });
+
+
+
+    close_btn.addEventListener('click', () => {
+        social_panel_container.classList.remove('visible')
+    });
+</script>
+
+
+</html>
