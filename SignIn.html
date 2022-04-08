@@ -59,15 +59,15 @@
         // trim to remove the whitespaces
         const usernameValue = username.value.trim();
         const passwordValue = password.value.trim();
-        if (usernameValue === 'JohnCena' && passwordValue === '123456') {
+        if ((usernameValue === 'JohnCena' && passwordValue === '123456') || (usernameValue === 'dana' && passwordValue === '123456')) {
 
             window.location.href = "welcome.html";
             setSuccessFor(username)
             setSuccessFor(password)
 
         } else {
-            setErrorFor(username, 'Invalid Username or Passowrd');
-            setErrorFor(password, 'Invalid Username or Passowrd');
+            setErrorFor(username, 'Invalid Username or Password');
+            setErrorFor(password, 'Invalid Username or Password');
         }
     }
 

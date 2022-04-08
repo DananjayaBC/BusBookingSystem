@@ -197,6 +197,10 @@
         const password2Value = password2.value.trim();
         if (usernameValue === '') {
             setErrorFor(username, 'Username cannot be blank');
+
+            value = false;
+        } else if (usernameValue == 'JohnCena') {
+            setErrorFor(username, 'Username is exsists, use another user name');
             value = false;
         } else {
             setSuccessFor(username);
@@ -207,6 +211,9 @@
             value = false;
         } else if (!isEmail(emailValue)) {
             setErrorFor(email, 'Not a valid email');
+            value = false;
+        } else if (emailValue == 'john@gmail.com') {
+            setErrorFor(email, 'Email is exsists, use new email');
             value = false;
         } else {
             setSuccessFor(email);

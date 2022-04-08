@@ -35,18 +35,18 @@
                     </p>
                 </div>
                 <div class="cover">
-                    <form action="reservation.html" method="post">
+                    <form action="./Reservation.html" id="form">
 
                         <div class="elem-group inlined">
-                            <label for="phone">From</label>
-                            <input type="text" id="from" name="total_adults" placeholder="Colombo" min="1" required>
-
+                            <label>From</label>
+                            <input type="text" id="from" placeholder="Colombo" required>
                         </div>
                         <div class="elem-group inlined">
-                            <label for="adult">To</label>
-                            <input type="text" id="to" name="total_adults" placeholder="Galle" required>
+                            <label>To</label>
+                            <input type="text" id="to" placeholder="Galle" required>
                         </div>
                         <hr>
+
                         <!-- <div class="elem-group inlined">
                             <label for="adult">Adults</label>
                             <input type="number" id="adult" name="total_adults" placeholder="2" min="1" required>
@@ -55,18 +55,27 @@
                             <label for="child">Children</label>
                             <input type="number" id="child" name="total_children" placeholder="2" min="0" required>
                         </div> -->
-                        <div class="elem-group">
-                            <label for="checkin-date">Booking Date</label>
-                            <input type="date" id="bookin-date" name="checkin" required>
+                        <div class="elem-group inlined">
+                            <label>Booking Date</label>
+                            <input type="date" id="bookingDate" required>
+                        </div>
+
+                        <div class="elem-group inlined">
+                            <label>Time</label>
+                            <input type="time" id="bookingTime" required>
                         </div>
                         <hr>
                         <center>
                             <button class="cta-add" type="submit">Book</button>
+
                         </center>
                     </form>
+
                     <!-- <img src="./img/maintain.jpg"> -->
                 </div>
-
+                <center>
+                    <div id="result"></div>
+                </center>
 
             </div>
             <!-- <div class="cover">
@@ -87,27 +96,46 @@
 
 </body>
 <script>
-    var currentDateTime = new Date();
-    var year = currentDateTime.getFullYear();
-    var month = (currentDateTime.getMonth() + 1);
-    var date = (currentDateTime.getDate() + 1);
+    const form = document.getElementById('form');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
 
-    if (date < 10) {
-        date = '0' + date;
+        checkInputs();
+    });
+    function checkInputs() {
+        const date = document.getElementById('bookingDate');
+        const time = document.getElementById('bookingTime');
+        const dateValue = date.value.trim();
+        const timeValue = time.value.trim();
+        document.getElementById('result').innerHTML = dateValue
+        if (dateValue === '2022-04-09' && timeValue === '10:10') {
+            window.location.href = "Reservation.html";
+        } else {
+            document.getElementById('result').innerHTML = "There are no buses for booking please select another time/Date"
+            document.getElementById('result').style.color = "red"
+        }
     }
-    if (month < 10) {
-        month = '0' + month;
-    }
+    // var currentDateTime = new Date();
+    // var year = currentDateTime.getFullYear();
+    // var month = (currentDateTime.getMonth() + 1);
+    // var date = (currentDateTime.getDate() + 1);
 
-    var dateTomorrow = year + "-" + month + "-" + date;
-    var bookinElem = document.querySelector("#bookin-date");
+    // if (date < 10) {
+    //     date = '0' + date;
+    // }
+    // if (month < 10) {
+    //     month = '0' + month;
+    // }
+
+    // var dateTomorrow = year + "-" + month + "-" + date;
+    // var bookinElem = document.querySelector("#bookin-date");
 
 
-    bookinElem.setAttribute("min", dateTomorrow);
+    // bookinElem.setAttribute("min", dateTomorrow);
 
-    bookinElem.onchange = function () {
-        bookinElem.setAttribute("min", this.value);
-    }
+    // bookinElem.onchange = function () {
+    //     bookinElem.setAttribute("min", this.value);
+    // }
 </script>
 
 </html>

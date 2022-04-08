@@ -8,53 +8,173 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./styles/style1.css">
 </head>
+<style>
+    /* * {
+        font-size: 12px;
+        font-family: 'Times New Roman';
+    } */
+
+
+
+    td,
+    th,
+    tr,
+    table {
+        border-top: 1px solid black;
+        border-collapse: collapse;
+    }
+
+
+    /* 
+    td.description,
+    th.description {
+        width: 75px;
+        max-width: 75px;
+    }
+
+
+
+    td.quantity,
+    th.quantity {
+        width: 40px;
+        max-width: 40px;
+        word-break: break-all;
+    }
+
+
+
+    td.price,
+    th.price {
+        width: 40px;
+        max-width: 40px;
+        word-break: break-all;
+    } */
+
+
+
+    .centered {
+        text-align: center;
+        align-content: center;
+    }
+
+
+
+    /* .ticket {
+        width: 155px;
+        max-width: 155px;
+    } */
+
+
+
+    img {
+        max-width: inherit;
+        width: inherit;
+    }
+
+
+
+    @media print {
+
+        .hidden-print,
+        .hidden-print * {
+            display: none !important;
+        }
+    }
+</style>
 
 <body>
     <header>
         <div class="logo-container">
             <img src="./img/logo.svg" alt="logo">
-            <h4 class="logo"> <a href="./welcome.html">Home</a></h4>
+            <h4 class="logo"> <a class="hidden-print" href="./welcome.html">Home</a></h4>
         </div>
-        <nav>
+        <!-- <nav>
             <ul class="nav-links">
                 <li><a class="nav-link" href="./timeTable.html">Time Table</a></li>
                 <li><a class="nav-link" href="./ourService.html">Our Service</a></li>
                 <li><a class="nav-link" href="./contact.html">Contact</a></li>
             </ul>
-        </nav>
+        </nav> -->
 
     </header>
 
 
-
     <main>
-        <section class="presentation">
+        <!-- <section class="presentation">
             <div class="introduction">
                 <div class="intro-text">
-                    <p>See your Favourite Seats Here
+                    <p>Print your Ticket Here
                     </p>
-                </div>
+                </div> -->
+        <center>
+            <div class="ticket">
+                <!-- <img src="./logo.png" alt="Logo"> -->
+                <p class="centered" style="margin-top: 50px;"><b>Ticket</b>
+                    <br>Bus Ticket Booking
+                    <br>Team B
+                    <br>Tp : 076-1112223
+                </p>
+                <table style="margin-top: 40px;">
+                    <thead>
+                        <tr>
+                            <th style="width: 100px;">From</th>
+                            <th style="width: 100px;">To</th>
+                            <th>Date</th>
+                            <th style="width: 100px;">Time</th>
+                            <th>$$</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="centered">Colombo</td>
+                            <td class="centered">Galle</td>
+                            <td class="centered">04/09/2022</td>
+                            <td class="centered">10:10 AM</td>
+                            <td class="centered">RS.500.00</td>
+                        </tr>
 
-                <div class="cover">
-                    <img src="./img/maintain.jpg">
-                </div>
-                <a href="Book.html">Back</a>
-
+                    </tbody>
+                </table>
+                <p style="margin-top: 40px;" class="centered">Thanks for your purchase!
+                    <br>bus.book/blog
+                </p>
             </div>
-            <!-- <div class="cover">
+            <button style="margin-top: 40px; background: #c36cbb;
+            width: 150PX;
+            height: 50PX;
+            cursor: pointer;
+            font-size: 16PX;
+            border: none;
+            color: white;
+            margin: 30px 0px 0px 30px;" id="btnPrint" class="hidden-print">Print</button>
+        </center>
+        <script>
+            const $btnPrint = document.querySelector("#btnPrint");
+            $btnPrint.addEventListener("click", () => {
+                window.print();
+            });
+        </script>
+
+        <!-- <div class="cover">
+                    <img src="./img/maintain.jpg">
+                </div> -->
+        <a style="margin-left: 100px; " class="hidden-print" href="Book.html">Back</a>
+
+        <!-- </div> -->
+        <!-- <div class="cover">
                     <img src="https://cms.eichertrucksandbuses.com/uploads/truck/sub-category/a933e5958e4a354cfb8d22665bd244fd.png"
                         alt="matebook">
                 </div> -->
-        </section>
+        <!-- </section> -->
         <img class="big-circle" src="./img/big-eclipse.svg" alt="">
         <img class="medium-circle" src="./img/mid-eclipse.svg" alt="">
         <img class="small-circle" src="./img/small-eclipse.svg" alt="">
     </main>
 
 
-    <footer>
+    <!-- <footer>
         <p>© 2022 Bus Booking System | All Rights Reserved by TeamB</p>
-    </footer>
+    </footer> -->
 
 
 </body>
